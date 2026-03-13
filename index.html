@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horari SMX2 (tarda) 301</title>
+    
+    <style>
+        /*
+            style -> per posar estils a les etiquetes
+            width -> amplada (100% = tot l'ample)
+            text-align -> alinear el text, faig servir center
+            border -> vora de les cel·les (gruix, estil, color)
+            border-collapse -> evita que es dupliquin les vores
+            background-color -> color de fons de cada assignatura
+        */
+
+        /* Estils generals de la taula */
+        table {
+            width: 100%;
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estils comuns de les cel·les amb més alçada (padding) */
+        th, td {
+            border: 1px solid black;
+            padding: 14px 8px;
+        }
+
+        /* Classes per als colors de fons assignats */
+        .bg-titol    { background-color: #d1a525; font-size: 1.2em; font-weight: bold; padding: 10px; }
+        .bg-dies     { background-color: #b8cdd6; font-weight: bold; }
+        .bg-hores    { background-color: #dde6ea; }
+        .bg-sop      { background-color: #e6e6e6; }
+        .bg-pjsis    { background-color: #a9d08e; }
+        .bg-tutoria  { background-color: #a9d08e; }
+        .bg-angles   { background-color: #c6e0b4; }
+        .bg-web      { background-color: #9dc3e6; }
+        .bg-pjweb    { background-color: #f4e0c8; }
+        .bg-segur    { background-color: #d6c6d3; }
+        .bg-serveis  { background-color: #e2d0bd; }
+        .bg-sost     { background-color: #c68c53; }
+        .bg-dark-grey { background-color: #ffffff; }
+        .bg-white    { background-color: #ffffff; }
+
+        /* Estil per la línia fina del pati */
+        .bg-pati {
+            background-color: black;
+            height: 4px;
+            padding: 0;
+            line-height: 0;
+            font-size: 0;
+        }
+    </style>
+</head>
+<body>
+
+<!--
+    <table> -> crea la taula
+    <tr> -> fila
+    <td> -> cel·la normal
+    <th> -> cel·la de capçalera (negreta)
+    <caption> -> títol de la taula
+
+    colspan -> per ocupar més d'una columna (ho faig servir al títol i al pati)
+    rowspan -> per ocupar més d'una fila (quan una assignatura dura 2h)
+-->
+
+    <!-- aquí comença la taula de l'horari -->
+    <table>
+
+        <!-- caption és el títol oficial de la taula -->
+        <caption class="bg-titol">SMX2 (tarda) 301</caption>
+
+        <!-- fila dels dies de la setmana -->
+        <tr class="bg-dies">
+            <th></th>
+            <th>Dilluns</th>
+            <th>Dimarts</th>
+            <th>Dimecres</th>
+            <th>Dijous</th>
+            <th>Divendres</th>
+        </tr>
+
+        <!-- primera hora: 15:00 - 15:55 -->
+        <!-- S.Op.Xa, Anglès i PJ Web tenen rowspan="2" perquè duren 2 hores seguides -->
+        <tr>
+            <td class="bg-hores">15:00<br>15:55</td>
+            <td rowspan="2" class="bg-sop">0224 S.Op.Xa &nbsp;&nbsp;&nbsp; 301<br>Nuri/Ale &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td rowspan="2" class="bg-sop">0224 S.Op.Xa &nbsp;&nbsp;&nbsp; 301<br>Nuri/Ale &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td class="bg-dark-grey"></td>
+            <td rowspan="2" class="bg-angles">0156 Anglès &nbsp;&nbsp;&nbsp; 301<br>Alex &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td rowspan="2" class="bg-pjweb">1713.1 PJ Web &nbsp;&nbsp;&nbsp; 301<br>Alberto/Agnès &nbsp;&nbsp;&nbsp; SMX2</td>
+        </tr>
+
+        <!-- segona hora: 15:55 - 16:50 -->
+        <tr>
+            <td class="bg-hores">15:55<br>16:50</td>
+            <td class="bg-dark-grey"></td>
+        </tr>
+
+        <!-- tercera hora: 16:50 - 17:45 -->
+        <!-- PJ Sis i Seguretat tenen rowspan="2" perquè també duren 2 hores -->
+        <tr>
+            <td class="bg-hores">16:50<br>17:45</td>
+            <td rowspan="2" class="bg-pjsis">1713.2 PJ Sis &nbsp;&nbsp;&nbsp; 301<br>Gerard/ Pedro &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td class="bg-pjsis">1713.2 PJ Sis &nbsp;&nbsp;&nbsp; 301<br>Gerard &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td class="bg-tutoria">Tutoria &nbsp;&nbsp;&nbsp; 301<br>Alex / Pedro &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td rowspan="2" class="bg-segur">0226 Seguretat &nbsp;&nbsp;&nbsp; 301<br>Pedro &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td class="bg-sost">1708 Sostenibilitat &nbsp;&nbsp; 301<br>Ale/Agnès &nbsp;&nbsp;&nbsp; SMX2</td>
+        </tr>
+
+        <!-- quarta hora: 17:45 - 18:40 -->
+        <tr>
+            <td class="bg-hores">17:45<br>18:40</td>
+            <td class="bg-segur">0226 Seguretat &nbsp;&nbsp;&nbsp; 301<br>Pedro &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td class="bg-web">0228 web &nbsp;&nbsp;&nbsp; 301<br>Alberto &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td class="bg-white"></td>
+        </tr>
+
+        <!-- línia del pati, amb colspan="6" per tapar tota la fila -->
+        <tr>
+            <td colspan="6" class="bg-pati"></td>
+        </tr>
+
+        <!-- cinquena hora: 19:10 - 20:05 -->
+        <!-- Serveis i Web tenen rowspan="2" perquè duren 2 hores -->
+        <tr>
+            <td class="bg-hores">19:10<br>20:05</td>
+            <td class="bg-white"></td>
+            <td rowspan="2" class="bg-serveis">0227 Serveis &nbsp;&nbsp;&nbsp; 301<br>Pedro &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td rowspan="2" class="bg-web">0228 web &nbsp;&nbsp;&nbsp; 301<br>Alberto &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td rowspan="2" class="bg-serveis">0227 Serveis &nbsp;&nbsp;&nbsp; 301<br>Pedro/Agnès &nbsp;&nbsp;&nbsp; SMX2</td>
+            <td class="bg-dark-grey"></td>
+        </tr>
+
+        <!-- sisena hora: 20:05 - 21:00 -->
+        <tr>
+            <td class="bg-hores">20:05<br>21:00</td>
+            <td class="bg-white"></td>
+            <td class="bg-dark-grey"></td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
